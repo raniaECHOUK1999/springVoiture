@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier une Voiture</title>
+    <!-- Inclure Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Modifier une Voiture</h1>
+    <!-- Formulaire pour modifier la voiture -->
+    <form th:action="@{/voitures/edit/{id}(id=${voiture.idVoiture})}" th:object="${voiture}" method="post" class="mt-4" enctype="multipart/form-data">
+        <!-- Champ caché pour l'ID de la voiture -->
+        <input type="hidden" th:field="*{idVoiture}" />
+
+        <!-- Sélection de la marque -->
+        <div class="mb-3">
+            <label for="marque" class="form-label">Marque</label>
+            <select th:field="*{marque.idMrq}" class="form-select" id="marque" required>
+                <option value="" disabled>Sélectionnez une marque</option>
+                <option th:each="marque : ${marques}"
+                        th:value="${marque.idMrq}"
+                        th:text="${marque.name}"
+                        th:selected="${marque.idMrq} == ${voiture.marque.idMrq}">
+                </option>
+            </select>
+        </div>
+
+        <!-- Matricule -->
+        <div class="mb-3">
+            <label for="matricule" class="form-label">Matricule</label>
+            <input type="text" th:field="*{matricule}" class="form-control" id="matricule" placeholder="Entrez le matricule" required>
+        </div>
+
+        <!-- Prix -->
+        <div class="mb-3">
+            <label for="prix" class="form-label">Prix</label>
+            <input type="number" step="0.01" th:field="*{prix}" class="form-control" id="prix" placeholder="Entrez le prix" required>
+        </div>
+
+        <!-- Sélection du moteur -->
+        <div class="mb-3">
+            <label for="moteur" class="form-label">Moteur</label>
+            <select th:field="*{moteur}" class="form-select" id="moteur" required>
+                <option value="" disabled>Sélectionnez le type de moteur</option>
+                <option value="Essence" th:selected="${voiture.moteur} == 'Essence'">Essence</option>
+                <option value="Diesel" th:selected="${voiture.moteur} == 'Diesel'">Diesel</option>
+                <option value="Hybride" th:selected="${voiture.moteur} == 'Hybride'">Hybride</option>
+                <option value="Électrique" th:selected="${voiture.moteur} == 'Électrique'">Électrique</option>
+            </select>
+        </div>
+
+        <!-- Couleur -->
+        <div class="mb-3">
+            <label for="couleur" class="form-label">Couleur</label>
+            <input type="text" th:field="*{couleur}" class="form-control" id="couleur" placeholder="Entrez la couleur" required>
+        </div>
+
+        <!-- Type d'intérieur -->
+        <div class="mb-3">
+            <label for="typeIntérieur" class="form-label">Type d'Intérieur</label>
+            <input type="text" th:field="*{typeIntérieur}" class="form-control" id="typeIntérieur" placeholder="Exemple : Cuir, Tissu" required>
+        </div>
+
+        <!-- Date de vente -->
+        <div class="mb-3">
+            <label for="dateVente" class="form-label">Date de Vente</label>
+            <input type="date" th:field="*{dateVente}" class="form-control" id="dateVente" required>
+        </div>
+
+        <!-- Sélection de la catégorie -->
+        <div class="mb-3">
+            <label for="categorie" class="form-label">Catégorie</label>
+            <select th:field="*{categorie.idCtg}" class="form-select" id="categorie" required>
+                <option value="" disabled th:selected="${voiture.categorie == null}">Sélectionnez une catégorie</option>
+                <option th:each="categorie : ${categories}"
+                        th:value="${categorie.idCtg}"
+                        th:text="${categorie.nom}"
+                        th:selected="${categorie.idCtg} == ${voiture.categorie.idCtg}">
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="options" class="form-label">Équipements</label>
+            <select th:field="*{options}" class="form-select" id="options" multiple>
+                <option th:each="option : ${options}"
+                        th:value="${option.idOpt}"
+                        th:text="${option.nom}"
+                        th:selected="${voiture.options.contains(option)}">
+                </option>
+            </select>
+        </div>
+
+        <!-- Bouton de soumission -->
+        <button type="submit" class="btn btn-primary">Modifier</button>
+        <br><br><br>
+    </form>
+</div>
+<div th:replace="~{footer}"></div>
+
+</body>
+</html>

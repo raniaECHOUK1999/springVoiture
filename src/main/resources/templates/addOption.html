@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Option</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Ajouter une Nouvelle Option</h1>
+    <form action="/options/add" method="post">
+        <div class="form-group">
+            <label for="nom">Nom de l'Option</label>
+            <input type="text" id="nom" name="nom" class="form-control" placeholder="Exemple : Toit ouvrant" required>
+        </div>
+        <div class="form-group">
+            <label for="prix">Prix (€)</label>
+            <input type="number" id="prix" name="prix" class="form-control" placeholder="Exemple : 500" required>
+        </div>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+        <a href="/options" class="btn btn-secondary">Annuler</a>
+    </form>
+</div><div th:replace="~{footer}"></div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la Voiture</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- En-tête -->
+<div th:replace="header :: header"></div>
+
+<!-- Détails de la voiture -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 th:text="${voiture.marque.name} + ' ' + ${voiture.matricule}">Nom de la voiture</h2>
+            <p><strong>Prix:</strong> <span th:text="${voiture.prix}"></span> €</p>
+            <p><strong>Moteur:</strong> <span th:text="${voiture.moteur}"></span></p>
+            <p><strong>Couleur:</strong> <span th:text="${voiture.couleur}"></span></p>
+            <p><strong>Type d'intérieur:</strong> <span th:text="${voiture.typeIntérieur}"></span></p>
+            <p><strong>Date de vente:</strong> <span th:text="${voiture.dateVente}"></span></p>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{'/images/' + ${voiture.image}}" class="d-block w-100" alt="Image voiture"
+                     th:alt="'Image de la voiture'">
+            </div>
+        </div>
+    </div>
+
+    <!-- Tableau des options -->
+    <div class="mt-4">
+        <h3>Options disponibles</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom de l'option</th>
+                <th>Prix (€)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="option : ${options}">
+                <td th:text="${option.nom}">Nom de l'option</td>
+                <td th:text="${option.prix}">Prix</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Retour à la liste des voitures -->
+    <a href="/listVoitures" class="btn btn-primary mt-3">Retour à la liste des voitures</a>
+</div>
+<br><br>
+<!-- Pied de page -->
+<div th:replace="~{footer}"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier une Catégorie</title>
+    <!-- Inclure Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Modifier une Catégorie</h1>
+    <!-- Formulaire pour modifier la catégorie -->
+    <form th:action="@{/categories/edit/{id}(id=${categorie.idCtg})}" th:object="${categorie}" method="post" class="mt-4">
+        <!-- Nom de la catégorie -->
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom de la Catégorie</label>
+            <input type="text" th:field="*{nom}" class="form-control" id="nom" placeholder="Entrez le nom de la catégorie" required>
+        </div>
+
+        <!-- Description de la catégorie -->
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea th:field="*{description}" class="form-control" id="description" rows="3" placeholder="Entrez une description"></textarea>
+        </div>
+
+        <!-- Bouton de soumission -->
+        <button type="submit" class="btn btn-primary">Modifier</button>
+    </form>
+</div>
+<div th:replace="~{footer}"></div>
+
+<!-- Inclure Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

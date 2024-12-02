@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Voitures</title>
+    <!-- Inclure Bootstrap via un CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="header :: header"></div>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center my-4">
+        <h1>Liste des Voitures</h1>
+        <!-- Bouton pour aller à l'interface d'ajout -->
+        <a href="/voitures/add" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Ajouter une Voiture</a>
+    </div>
+
+    <!-- Table pour afficher les voitures -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Prix</th>
+            <th>Couleur</th>
+            <th>Type Moteur</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Boucle Thymeleaf pour afficher chaque voiture -->
+        <tr th:each="voiture : ${voitures}">
+            <!-- Assurez-vous que les noms des propriétés sont corrects -->
+            <td th:text="${voiture.marque.name}">Marque</td>
+            <td th:text="${voiture.matricule}">Matricule</td>
+            <td th:text="${voiture.prix}">Prix</td>
+            <td th:text="${voiture.couleur}">Couleur</td>
+            <td th:text="${voiture.moteur}">Moteur</td>
+            <td>
+                <!-- Bouton Modifier -->
+                <a th:href="@{/voitures/edit/{id}(id=${voiture.idVoiture})}" class="btn btn-sm btn-warning" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                </a>
+
+                <a th:href="@{/voiture/{id}(id=${voiture.idVoiture})}"
+                   class="btn btn-sm btn-info" title="Consulter les détails">
+                    <i class="fas fa-eye"></i>
+                </a>
+                <!-- Bouton Supprimer -->
+                <a th:href="@{/voitures/delete/{id}(id=${voiture.idVoiture})}"
+                   class="btn btn-sm btn-danger" title="Supprimer"
+                   onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette voiture ?');">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Inclure Bootstrap JS et FontAwesome -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<div th:replace="~{footer}"></div>
+
+</body>
+</html>

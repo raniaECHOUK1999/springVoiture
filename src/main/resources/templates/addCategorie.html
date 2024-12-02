@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Catégorie</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Ajouter une Nouvelle Catégorie</h1>
+    <form action="/categories/add" method="post">
+        <div class="form-group">
+            <label for="nom">Nom de la Catégorie</label>
+            <input type="text" id="nom" name="nom" class="form-control" placeholder="Exemple : SUV" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description de la Catégorie</label>
+            <textarea id="description" name="description" class="form-control" placeholder="Exemple : Véhicules tout terrain" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+        <a href="/categories" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+</body>
+</html>

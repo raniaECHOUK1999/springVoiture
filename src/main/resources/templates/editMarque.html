@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier une Marque</title>
+    <!-- Inclure Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Modifier une Marque</h1>
+    <!-- Formulaire pour modifier une marque -->
+    <form th:action="@{/marques/edit/{id}(id=${marque.idMrq})}" th:object="${marque}" method="post" class="mt-4">
+        <!-- Champ caché pour l'ID de la marque -->
+        <input type="hidden" th:field="*{idMrq}" />
+
+        <!-- Nom de la marque -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom</label>
+            <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Entrez le nom de la marque" required>
+        </div>
+
+        <!-- Année de création -->
+        <div class="mb-3">
+            <label for="anneeDeCreation" class="form-label">Année de Création</label>
+            <input type="text" th:field="*{anneeDeCreation}" class="form-control" id="anneeDeCreation" placeholder="Entrez l'année de création" required>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea th:field="*{description}" class="form-control" id="description" rows="4" placeholder="Entrez une description de la marque" required></textarea>
+        </div>
+
+        <!-- Bouton de soumission -->
+        <button type="submit" class="btn btn-primary">Modifier</button>
+    </form>
+</div>
+
+<!-- Inclure Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script><div th:replace="~{footer}"></div>
+
+</body>
+</html>

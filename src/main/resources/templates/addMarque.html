@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Marque</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Ajouter une Nouvelle Marque</h1>
+    <form action="/marques/add" method="post">
+        <div class="form-group">
+            <label for="anneeDeCreation">Année de Création</label>
+            <input type="text" id="anneeDeCreation" name="anneeDeCreation" class="form-control" placeholder="Exemple : 1995" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Année de Création</label>
+            <input type="text" id="name" name="name" class="form-control"  required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" class="form-control" placeholder="Description de la marque" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+        <a href="/listMarques" class="btn btn-secondary">Annuler</a>
+    </form>
+</div><div th:replace="~{footer}"></div>
+
+</body>
+</html>

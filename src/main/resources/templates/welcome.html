@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<!-- Inclusion du fragment header depuis header.html -->
+<div th:replace="header :: header"></div>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center">
+        <h1 class="display-4 text-primary">Bienvenue dans notre Application !</h1>
+        <p class="lead">Nous sommes heureux de vous voir ici. Explorez notre application pour découvrir plus de fonctionnalités.</p>
+        <!-- Bouton pour rediriger vers une autre page (ex : tableau de bord) -->
+        <a href="#" class="btn btn-lg btn-success">Commencer</a>
+    </div>
+</div>
+
+<div th:replace="~{footer}"></div>
+
+<!-- Lien vers jQuery, Popper.js et Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

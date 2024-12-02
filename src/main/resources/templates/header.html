@@ -1,0 +1,80 @@
+<!-- header.html -->
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragments</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Style personnalisé pour la bordure colorée */
+        .navbar {
+            border: 3px solid #007bff; /* Bordure bleue */
+            border-radius: 10px; /* Bordure arrondie */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour ajouter un effet de profondeur */
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff !important; /* Couleur de la marque */
+        }
+        .navbar-nav .nav-link {
+            color: #555; /* Couleur des liens du menu */
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff; /* Couleur des liens au survol */
+            text-decoration: underline; /* Soulignement au survol */
+        }
+        .navbar-toggler-icon {
+            background-color: #007bff; /* Couleur du bouton pour mobile */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Définition du fragment header avec bordure colorée -->
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Mon Application</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ListCategories">Catégories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listMarques">Marques</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listOptions">Options</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listVoitures">Voitures</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listUsers">Utilisateurs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listRoles">Roles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">À propos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- Lien vers jQuery, Popper.js et Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

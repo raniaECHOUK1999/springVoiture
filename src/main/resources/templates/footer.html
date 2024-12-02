@@ -1,0 +1,64 @@
+<!-- footer.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Style pour le pied de page */
+        .footer {
+            background-color: #007bff; /* Couleur de fond bleu */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons {
+            margin-top: 10px;
+        }
+        .footer .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: white;
+        }
+        .footer .social-icons a:hover {
+            color: #ffdd57;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Définir le fragment footer -->
+<div th:fragment="footer">
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mon Application | Tous droits réservés | ING-4-S-GLSI-B</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
+                <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
+                <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
+                <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Lien vers Font Awesome pour les icônes sociales -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<!-- Lien vers jQuery, Popper.js et Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
